@@ -1,4 +1,10 @@
-import { CompassIcon, HomeIcon, LoaderIcon, SparklesIcon } from "lucide-react";
+import {
+  BuildingIcon,
+  CompassIcon,
+  HomeIcon,
+  LoaderIcon,
+  SparklesIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
@@ -64,6 +70,11 @@ export default function Header() {
                   </Link>
                 </Button>
                 <UserButton />
+                <UserButton.UserProfilePage
+                  label="Organizations"
+                  labelIcon={<BuildingIcon className="size-4" />}
+                  url="/organizations"
+                />
               </Show>
             </Suspense>
           </div>

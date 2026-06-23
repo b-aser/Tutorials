@@ -25,6 +25,8 @@ export default function ProductSubmitForm() {
     initialState,
   );
 
+  const { error, message, success } = state;
+
   return (
     <form action={formAction} className="space-y-6">
       <FormField
@@ -33,7 +35,7 @@ export default function ProductSubmitForm() {
         name="name"
         placeholder="My Awesome Product"
         required
-        error=""
+        error={error.name?.[0] || ""}
         onChange={() => {}}
       />
       <FormField
@@ -42,7 +44,7 @@ export default function ProductSubmitForm() {
         name="slug"
         placeholder="my-awesome-product"
         required
-        error=""
+        error={error.slug?.[0] || ""}
         onChange={() => {}}
         helperText="The slug is the URL-friendly version of the product name. It should be lowercase and contain only letters, numbers, and hyphens."
       />
@@ -52,7 +54,7 @@ export default function ProductSubmitForm() {
         name="tagline"
         placeholder="A short, catchy tagline for your product"
         required
-        error=""
+        error={error.tagline?.[0] || ""}
         onChange={() => {}}
       />
       <FormField
@@ -61,7 +63,7 @@ export default function ProductSubmitForm() {
         name="description"
         placeholder="A detailed description of your product"
         required
-        error=""
+        error={error.description?.[0] || ""}
         onChange={() => {}}
         textarea
         helperText="Tell us about your product..."
@@ -72,7 +74,7 @@ export default function ProductSubmitForm() {
         name="websiteUrl"
         placeholder="https://example.com"
         required
-        error=""
+        error={error.websiteUrl?.[0] || ""}
         onChange={() => {}}
         helperText="The website URL is the URL of the product's website. It should be a valid URL."
       />
@@ -82,7 +84,7 @@ export default function ProductSubmitForm() {
         name="tags"
         placeholder="AI, Productivity, SaaS"
         required
-        error=""
+        error={error.tags?.[0] || ""}
         onChange={() => {}}
         helperText="The tags are the keywords for the product. They should be separated by commas."
       />
